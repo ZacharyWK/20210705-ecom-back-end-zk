@@ -1,111 +1,111 @@
-// The `/api/tags` endpoint
-
+// The `/api/categories` endpoint
+  
 const router = require('express').Router();
-const { Tag, Product, ProductTag } = require('../../models');
+const { Category, Product } = require('../../models');
 
 
-// Get all Tags
+// Get all Categories
 router.get('/', async (req, res) => {
 try
 {
-const tagData = await Tag
+const categoryData = await Category
 .findAll(
 {
-include: [{model:ProductTag},{model:Product}],
+include: [{ model: Product}]
 });
-if (!tagData)
+if (!categoryData)
 {
 res.status(404).json
-({ message: 'No tags found.'});
+({ message: 'No categories found.'});
 return;
 }
-res.status(200).json(tagData);
-}
+res.status(200).json(categoryData)
+} 
 catch 
-(err) {res.status(500).json(err)}
+(err) {res.status(500).json(err);}
 });
 
 
-// Get by Tag ID
+// Get by Category ID
 router.get('/:id', async (req, res) => {
 try
 {
-const tagData = await Product
+const categoryData = await Category
 .findByPk(req.params.id,
 {
-include: [{model:ProductTag},{model:Product}],
+include:[{ model: Product}],
 });
-if (!tagData)
+if (!categoryData)
 {
 res.status(404).json
 ({ message: 'Im afraid I cant let you do that, the ID is incorrect.'});
 return;
 }
-res.status(200).json(tagData);
+res.status(200).json(categoryData);
 } 
-catch
-(err) {res.status(500).json(err)}
+catch 
+(err) {res.status(500).json(err);}
 });
 
 
-// New Tag
+// New Category
 router.post('/', async (req, res) => {
 try
 {
-const tagData = 
-await Tag.create(req.body);
-if (!tagData)
+const categoryData = 
+await Category.create(req.body);
+if (!categoryData)
 {
 res.status(404).json
 ({ message: 'Im afraid I cant let you do that, the ID is incorrect.'});
 return;
 }
-res.status(200).json(tagData)
-}
-catch 
-(err) {res.status(500).json(err);}
-});
-
-
-// Update Tag
-router.put('/:id', async (req, res) => {
-try 
-{
-const tagData = 
-await Tag.update(req.body, 
-{
-where:
-{id: req.params.id,},
-});
-if (!tagData[0]) 
-{
-res.status(404).json
-({ message: 'Im afraid I cant let you do that, the ID is incorrect.'});
-return;
-}
-res.status(200).json(tagData);
+res.status(200).json(categoryData)
 } 
 catch 
 (err) {res.status(500).json(err);}
 });
 
 
-// Delete Tag
-router.delete('/:id', async (req, res) => {
+// Update Category
+router.put('/:id', async (req, res) => {
 try 
 {
-const tagData = 
-await Tag.destroy({
+const categoryData = 
+await Category.update(req.body, 
+{
 where: 
 {id: req.params.id,},
 });
-if (!tagData) 
+if (!categoryData[0]) 
 {
 res.status(404).json
 ({ message: 'Im afraid I cant let you do that, the ID is incorrect.'});
 return;
 }
-res.status(200).json(tagData);
+res.status(200).json(categoryData);
+} 
+catch 
+(err) {res.status(500).json(err);}
+});
+
+
+// Delete Category
+router.delete('/:id', async (req, res) => {
+try 
+{
+const categoryData = 
+await Category.destroy({
+where: 
+{id: req.params.id,},
+});
+if (!categoryData) 
+{
+res.status(404).json
+({ message: 'Im afraid I cant let you do that, the ID is incorrect.'});
+return;
+}
+res.status(200).json(categoryData);
 } 
 catch 
 (err) {res.status(500).json(err);}
