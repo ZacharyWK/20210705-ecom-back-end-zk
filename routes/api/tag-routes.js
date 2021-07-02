@@ -11,7 +11,7 @@ try
 const tagData = await Tag
 .findAll(
 {
-include: [{model: ProductTag, model: Product}],
+include: [ProductTag, Product],
 });
 if (!tagData)
 {
@@ -33,7 +33,7 @@ try
 const tagData = await Product
 .findByPk(req.params.id,
 {
-include: [{model: ProductTag, model: Product}],
+include: [ProductTag, Product],
 });
 if (!tagData)
 {
