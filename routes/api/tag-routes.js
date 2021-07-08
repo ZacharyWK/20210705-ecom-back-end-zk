@@ -11,7 +11,7 @@ try
 const tagData = await Tag
 .findAll(
 {
-include: [{model:ProductTag},{model:Product}],
+include: [{model:Product}],
 });
 if (!tagData)
 {
@@ -30,10 +30,10 @@ catch
 router.get('/:id', async (req, res) => {
 try
 {
-const tagData = await Product
+const tagData = await Tag
 .findByPk(req.params.id,
 {
-include: [{model:ProductTag},{model:Product}],
+include: [{model:Product,through:ProductTag,}],
 });
 if (!tagData)
 {
@@ -44,7 +44,7 @@ return;
 res.status(200).json(tagData);
 } 
 catch
-(err) {res.status(500).json(err)}
+(err) {res.status(500).json(err);console.log("BROKEN: ",err)}
 });
 
 

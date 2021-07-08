@@ -1,4 +1,5 @@
 // Worked on HW with Chris, Johnny, Mike and Matt on 07-01-21
+// Worked on HW with Miguel on 07-02-21
 
 const express = require('express');
 const { sequelize } = require('./models/Product');

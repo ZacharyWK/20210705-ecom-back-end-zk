@@ -151,7 +151,7 @@ Your database should contain the following four models, including the requiremen
     * Doesn't allow null values.
 
     * Set as primary key.
-
+1
     * Uses auto increment.
 
   * `product_id`
