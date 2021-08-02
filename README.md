@@ -25,7 +25,7 @@ no UI designed, project made to run through insomnia.
 Install node and the following with npm install; sequelize, express, dotenv and mysql2.
 
 ## Usage Instructions
-After installing npms, mysql -u username -p password to login to the mysql terminal and run source schema.sql to set up the databaseuse. Then use node seeds/index.js to seed database and node server.js to launch the app. You will then be ablle to use insomnia to make queries to the database.
+After installing npms, mysql -u username -p password to login to the mysql terminal and run source schema.sql to set up the databaseuse. Then use node seeds/index.js to seed database and node server.js to launch the app. You will then be able to use insomnia to make requests to the database.
 
 
 ---
