@@ -25,7 +25,7 @@ no UI designed, project made to run through insomnia.
 Install node and the following with npm install; sequelize, express, dotenv and mysql2.
 
 ## Usage Instructions
-After installing npms, use node to launch the server.js, then use insomnia to make queries to database.
+After installing npms, mysql -u username -p password to login to the mysql terminal and run source schema.sql to set up the databaseuse. Then use node seeds/index.js to seed database and node server.js to launch the app. You will then be ablle to use insomnia to make queries to the database.
 
 
 ---
@@ -63,6 +63,11 @@ EMAIL: <ZachKrause@live.com>
 [REPOSITORY](https://github.com/ZacharyWK/20210705-ecom-back-end-zk)
 ```
 https://github.com/ZacharyWK/20210705-ecom-back-end-zk
+```
+
+[SETUP](https://youtu.be/7BjkWbtthBc)
+```
+https://youtu.be/7BjkWbtthBc
 ```
 
 [WALKTHROUGH](https://youtu.be/Op88OHmGvQU)
